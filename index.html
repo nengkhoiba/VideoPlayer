@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <link href="plyr.css" rel="stylesheet">
+        <script src="plyr.js" ></script>
+    </head>
+    <body>
+        <video id="player" playsinline controls>
+
+        </video>
+        <input type="text" id="videoUrl" placeholder="Video url here"/>
+        <button onClick="playVideo()">Load</button>
+    </body>
+    <script>
+        function playVideo(){
+            var videoUrl=document.getElementById("videoUrl").value;
+            new Plyr('#player',{
+                clickToPlay:true,
+                fullscreen:{
+                    enabled:true,
+                },
+                sources:{
+                    src:videoUrl,
+                    type:'video/mp4',
+
+                },
+                quality:{
+                    options:[4320,2880,2160,1440,1080,720,576,480,360,240]
+                }
+            })
+        }
+    </script>
+</html>
